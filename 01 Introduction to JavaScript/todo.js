@@ -15,11 +15,26 @@ do {
     /* This time the indexOf() function is used to locate the first space character. */
 		let space = input.indexOf(' ')
     /* the substring() function returns the string after the specified position. This will include the space character and so the result is trimmed of any whitespace. */
-		let item = input.substring(space).trim()
-    /* console.log() prints to the terminal. */
-		console.log('adding "'+item+'"')
-    /* All arrays have a built-in push() function which appends an item to their end. */
-		items.push(item)
+		let item = input.substring(space).trim().toLowerCase()
+		/*check if item is already in items array*/
+		if ( items.indexOf(item) === -1 ) {
+	    /* console.log() prints to the terminal. */
+			console.log('adding "'+item+'"')
+	    /* All arrays have a built-in push() function which appends an item to their end. */
+			items.push(item)
+		} else {
+		  console.log('Item already added!')
+		}
+	}
+	if (input.indexOf('remove ') === 0) {
+		let space = input.indexOf(' ')
+    let item = input.substring(space).trim().toLowerCase()
+		if ( items.indexOf(item) !== -1 ) {
+			console.log('removing "'+item+'"')
+			items.splice(items.indexOf(item), items.indexOf(item)+1)
+		} else {
+		  console.log('Item not in list!')
+		}
 	}
 	if (input.indexOf('list') === 0) {
     /* Here we use a for...next loop to interate through all the array indexes. The let keyword defines a variable with _block_ scope (more on this later). */

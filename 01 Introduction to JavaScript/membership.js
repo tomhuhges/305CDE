@@ -5,6 +5,7 @@ const readline = require('readline-sync')
 
 const type = String(readline.question('membership type (basic, premium, gold): ')).trim()
 const years = Number(readline.question('years required: '))
+let cost;
 
 try {
 	if (Number.isNaN(years) || years < 1) {
